@@ -1,120 +1,63 @@
 export default function App() {
+  const products = [
+    {
+      id: 1,
+      name: "Monster Energy",
+      price: "30 000 UZS",
+      image: "https://picsum.photos/300?1"
+    },
+    {
+      id: 2,
+      name: "Coca Cola",
+      price: "14 000 UZS",
+      image: "https://picsum.photos/300?2"
+    }
+  ];
+
   return (
-    <div
-      style={{
-        background: "#f7f7f7",
-        minHeight: "100vh",
-        fontFamily: "Arial, sans-serif"
-      }}
-    >
-      {/* Header */}
-      <div
-        style={{
-          background: "#0B8F3A",
-          color: "white",
-          padding: "20px",
-          borderBottomLeftRadius: "20px",
-          borderBottomRightRadius: "20px"
-        }}
-      >
-        <h2 style={{ margin: 0 }}>🥬 Green Market</h2>
-        <p style={{ marginTop: 5 }}>Har kuni yangi mahsulotlar</p>
-      </div>
+    <div className="app">
 
-      {/* Search */}
-      <div style={{ padding: 15 }}>
+      <header className="header">
+        <h2>🥬 Green Market</h2>
+
         <input
-          type="text"
-          placeholder="Mahsulot qidirish..."
-          style={{
-            width: "100%",
-            padding: 14,
-            borderRadius: 12,
-            border: "1px solid #ddd",
-            fontSize: 16
-          }}
+          className="search"
+          placeholder="Mahsulotlarni qidirish..."
         />
-      </div>
+      </header>
 
-      {/* Categories */}
-      <div
-        style={{
-          display: "flex",
-          gap: 10,
-          overflowX: "auto",
-          padding: "0 15px"
-        }}
-      >
+      <div className="categories">
         <button>🥤 Ichimliklar</button>
-        <button>🥩 Go'sht</button>
-        <button>🥛 Sut</button>
-        <button>🍎 Mevalar</button>
+        <button>🍫 Shirinliklar</button>
         <button>🥬 Sabzavotlar</button>
+        <button>🍎 Mevalar</button>
       </div>
 
-      {/* Products */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2,1fr)",
-          gap: 15,
-          padding: 15
-        }}
-      >
-        <div
-          style={{
-            background: "#fff",
-            borderRadius: 15,
-            padding: 15,
-            textAlign: "center"
-          }}
-        >
-          <img
-            src="https://picsum.photos/200"
-            style={{ width: "100%", borderRadius: 10 }}
-          />
-          <h3>Olma</h3>
-          <p>18 000 so'm</p>
-          <button
-            style={{
-              background: "#0B8F3A",
-              color: "#fff",
-              border: "none",
-              padding: "10px 18px",
-              borderRadius: 10
-            }}
-          >
-            Savatga
-          </button>
-        </div>
-
-        <div
-          style={{
-            background: "#fff",
-            borderRadius: 15,
-            padding: 15,
-            textAlign: "center"
-          }}
-        >
-          <img
-            src="https://picsum.photos/201"
-            style={{ width: "100%", borderRadius: 10 }}
-          />
-          <h3>Banan</h3>
-          <p>27 000 so'm</p>
-          <button
-            style={{
-              background: "#0B8F3A",
-              color: "#fff",
-              border: "none",
-              padding: "10px 18px",
-              borderRadius: 10
-            }}
-          >
-            Savatga
-          </button>
-        </div>
+      <div className="banner">
+        <h2>Chegirmalar</h2>
+        <p>Bugungi aksiyalarni o'tkazib yubormang!</p>
       </div>
+
+      <div className="products">
+
+        {products.map((item) => (
+
+          <div className="card" key={item.id}>
+
+            <img src={item.image} />
+
+            <h3>{item.name}</h3>
+
+            <p>{item.price}</p>
+
+            <button>Savatga</button>
+
+          </div>
+
+        ))}
+
+      </div>
+
     </div>
   );
 }
