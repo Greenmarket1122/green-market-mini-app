@@ -1,15 +1,13 @@
 const products = [
   {
-    {
-  id: 1,
-  name: "Coca Cola 1.5L",
-  price: 14990,
-  image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=600",
-  category: "Ichimliklar",
-  discount: 10,
-  rating: 4.8,
-  stock: true
-},
+    id: 1,
+    name: "Coca Cola 1.5L",
+    price: 14990,
+    image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=600",
+    category: "Ichimliklar",
+    discount: 10,
+    rating: 4.8,
+    stock: true,
   },
   {
     id: 2,
@@ -19,7 +17,7 @@ const products = [
     category: "Mevalar",
     discount: 0,
     rating: 4.9,
-    stock: true
+    stock: true,
   },
   {
     id: 3,
@@ -29,7 +27,7 @@ const products = [
     category: "Mevalar",
     discount: 5,
     rating: 4.7,
-    stock: true
+    stock: true,
   },
   {
     id: 4,
@@ -39,8 +37,8 @@ const products = [
     category: "Sut",
     discount: 0,
     rating: 4.6,
-    stock: true
-  }
+    stock: true,
+  },
 ];
 
 export default products;
