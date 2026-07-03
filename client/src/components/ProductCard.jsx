@@ -1,4 +1,8 @@
+import { useCart } from "../context/CartContext";
+
 export default function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
     <div className="bg-white rounded-3xl p-3 shadow">
 
@@ -10,6 +14,12 @@ export default function ProductCard({ product }) {
           className="w-full h-40 object-cover rounded-2xl"
         />
 
+        {product.discount > 0 && (
+          <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+            -{product.discount}%
+          </span>
+        )}
+
         <button className="absolute top-2 right-2 bg-white w-9 h-9 rounded-full shadow">
           🤍
         </button>
@@ -20,11 +30,20 @@ export default function ProductCard({ product }) {
         {product.name}
       </h3>
 
-      <p className="text-green-600 font-bold mt-1">
-        {product.price}
-      </p>
+      <div className="flex items-center justify-between mt-1">
+        <p className="text-green-600 font-bold">
+          {product.price.toLocaleString()} so'm
+        </p>
 
-      <button className="w-full mt-3 bg-primary text-white py-3 rounded-2xl font-semibold">
+        <span className="text-yellow-500 text-sm">
+          ⭐ {product.rating}
+        </span>
+      </div>
+
+      <button
+        onClick={() => addToCart(product)}
+        className="w-full mt-3 bg-primary text-white py-3 rounded-2xl font-semibold"
+      >
         Savatga qo'shish
       </button>
 
