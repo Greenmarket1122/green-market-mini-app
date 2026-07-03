@@ -1,13 +1,15 @@
 const products = [
   {
-    id: 1,
-    name: "Coca Cola 1.5L",
-    price: 14990,
-    image: "https://picsum.photos/300?1",
-    category: "Ichimliklar",
-    discount: 10,
-    rating: 4.8,
-    stock: true
+    {
+  id: 1,
+  name: "Coca Cola 1.5L",
+  price: 14990,
+  image: "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=600",
+  category: "Ichimliklar",
+  discount: 10,
+  rating: 4.8,
+  stock: true
+},
   },
   {
     id: 2,
