@@ -1,28 +1,36 @@
+import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 export default function BottomNav() {
   const { cart } = useCart();
+  const location = useLocation();
 
-  const totalItems = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const active = (path) =>
+    location.pathname === path ? "text-primary" : "text-gray-500";
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg">
       <div className="grid grid-cols-4 py-3">
 
-        <button className="flex flex-col items-center text-primary">
+        <Link to="/" className={`flex flex-col items-center ${active("/")}`}>
           <span className="text-2xl">🏠</span>
           <span className="text-xs mt-1">Bosh sahifa</span>
-        </button>
+        </Link>
 
-        <button className="flex flex-col items-center text-gray-500">
+        <Link
+          to="/wishlist"
+          className={`flex flex-col items-center ${active("/wishlist")}`}
+        >
           <span className="text-2xl">❤️</span>
           <span className="text-xs mt-1">Saralangan</span>
-        </button>
+        </Link>
 
-        <button className="relative flex flex-col items-center text-gray-500">
+        <Link
+          to="/cart"
+          className={`relative flex flex-col items-center ${active("/cart")}`}
+        >
           <span className="text-2xl">🛒</span>
 
           {totalItems > 0 && (
@@ -32,12 +40,15 @@ export default function BottomNav() {
           )}
 
           <span className="text-xs mt-1">Savat</span>
-        </button>
+        </Link>
 
-        <button className="flex flex-col items-center text-gray-500">
+        <Link
+          to="/profile"
+          className={`flex flex-col items-center ${active("/profile")}`}
+        >
           <span className="text-2xl">👤</span>
           <span className="text-xs mt-1">Profil</span>
-        </button>
+        </Link>
 
       </div>
     </nav>
