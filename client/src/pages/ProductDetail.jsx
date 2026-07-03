@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import products from "../data/products";
 import { useCart } from "../context/CartContext";
 
@@ -10,14 +10,25 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="p-6">
-        Mahsulot topilmadi
+      <div className="p-5">
+        Mahsulot topilmadi.
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-background">
+
+      <div className="p-4">
+
+        <Link
+          to="/"
+          className="text-primary font-semibold"
+        >
+          ← Orqaga
+        </Link>
+
+      </div>
 
       <img
         src={product.image}
@@ -35,18 +46,18 @@ export default function ProductDetail() {
           ⭐ {product.rating}
         </div>
 
-        <div className="mt-4 text-3xl font-bold text-primary">
+        <p className="mt-5 text-3xl font-bold text-primary">
           {product.price.toLocaleString()} so'm
-        </div>
+        </p>
 
-        <p className="mt-6 text-gray-600 leading-7">
+        <p className="mt-6 leading-7 text-gray-600">
           Green Market sifat kafolati bilan yetkazib beriladi.
-          Har kuni yangi mahsulot.
+          Mahsulot har kuni yangilanadi.
         </p>
 
         <button
           onClick={() => addToCart(product)}
-          className="mt-8 w-full bg-primary text-white py-4 rounded-2xl text-lg font-bold"
+          className="mt-8 w-full bg-primary text-white py-4 rounded-2xl font-bold"
         >
           Savatga qo'shish
         </button>
