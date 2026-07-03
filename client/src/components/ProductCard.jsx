@@ -1,7 +1,9 @@
 import { useCart } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const { toggleWishlist, isWishlisted } = useWishlist();
 
   return (
     <div className="bg-white rounded-3xl p-3 shadow">
@@ -20,8 +22,11 @@ export default function ProductCard({ product }) {
           </span>
         )}
 
-        <button className="absolute top-2 right-2 bg-white w-9 h-9 rounded-full shadow">
-          🤍
+        <button
+          onClick={() => toggleWishlist(product)}
+          className="absolute top-2 right-2 bg-white w-9 h-9 rounded-full shadow flex items-center justify-center"
+        >
+          {isWishlisted(product.id) ? "❤️" : "🤍"}
         </button>
 
       </div>
