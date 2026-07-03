@@ -4,11 +4,11 @@ import CategoryFilter from "../components/CategoryFilter";
 import Banner from "../components/Banner";
 import ProductGrid from "../components/ProductGrid";
 import BottomNav from "../components/BottomNav";
+import SectionTitle from "../components/SectionTitle";
 
 import useProducts from "../hooks/useProducts";
 
 export default function Home() {
-
   const {
     products,
     search,
@@ -33,6 +33,8 @@ export default function Home() {
       />
 
       <Banner />
+
+      <SectionTitle title="Mashhur mahsulotlar" />
 
       <ProductGrid
         products={products}
