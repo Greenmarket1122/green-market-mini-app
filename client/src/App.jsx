@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Banner from "./components/Banner";
+import ProductGrid from "./components/ProductGrid";
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <Header />
       <Categories />
       <Banner />
+      <ProductGrid />
     </div>
   );
 }
