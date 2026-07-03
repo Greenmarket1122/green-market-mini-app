@@ -10,16 +10,6 @@ export default function Header() {
         Har kuni yangi mahsulotlar
       </p>
 
-      <div className="mt-5">
-
-        <input
-          type="text"
-          placeholder="🔍 Mahsulot qidirish..."
-          className="w-full rounded-2xl p-4 outline-none text-gray-700"
-        />
-
-      </div>
-
     </header>
   );
 }
